@@ -1,0 +1,69 @@
+abstract class Vehiculo {
+
+    String marca;
+    String modelo;
+    int año;
+
+    public Vehiculo(String marca, String modelo, int año){
+        this.marca = marca;
+        this.modelo = modelo;
+        this.año = año;
+    }
+
+    public abstract void mostrarInformacion();
+}
+
+class Avión extends Vehiculo {
+
+    String tipoMotor;
+    int cantidadAsientos;
+
+    public Avión(String marca, String modelo, int año, String tipoMotor, int cantidadAsientos){
+        super(marca, modelo, año);
+        this.tipoMotor = tipoMotor;
+        this.cantidadAsientos = cantidadAsientos;
+    }
+
+    @Override
+    public void mostrarInformacion(){
+        System.out.println("Información del avión:");
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Año: " + año);
+        System.out.println("Tipo de motor: " + tipoMotor);
+        System.out.println("Cantidad de asientos: " + cantidadAsientos);
+    }
+}
+
+class Bicicleta extends Vehiculo {
+
+    String tipoChasis;
+    int cantidadCambios;
+
+    public Bicicleta(String marca, String modelo, int año, String tipoChasis, int cantidadCambios){
+        super(marca, modelo, año);
+        this.tipoChasis = tipoChasis;
+        this.cantidadCambios = cantidadCambios;
+    }
+
+    @Override
+    public void mostrarInformacion(){
+        System.out.println("Información de la bicicleta:");
+        System.out.println("Marca: " + marca);
+        System.out.println("Modelo: " + modelo);
+        System.out.println("Año: " + año);
+        System.out.println("Tipo de chasis: " + tipoChasis);
+        System.out.println("Cantidad de cambios: " + cantidadCambios);
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Avión avión = new Avión("Boeing", "747", 2021, "Jumbo Jet", 524);
+        avión.mostrarInformacion();
+
+        Bicicleta bicicleta = new Bicicleta("Scott", "Scale 980", 2022, "MTB", 12);
+        bicicleta.mostrarInformacion();
+    }
+}
+
